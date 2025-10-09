@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="start"
+    tools:context=".HomeActivity"
+    android:padding="50dp"
+    android:background="@color/backgroud_base"
+    >
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="60dp"
+        android:fontFamily="@font/league_spartan_semibold"
+        android:text="Home"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnAcessar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="550dp"
+        android:backgroundTint="@color/azul_claro"
+        android:fontFamily="@font/league_spartan_regular"
+        android:text="Acessar Resumo"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:layout_gravity="bottom"
+        />
+
+    <Button
+        android:id="@+id/btnSair"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/azul_padrao"
+        android:fontFamily="@font/league_spartan_regular"
+        android:text="Sair"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+
+</LinearLayout>
