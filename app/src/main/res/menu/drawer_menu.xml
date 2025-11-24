@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_info">
+        <item
+            android:id="@+id/nav_agente"
+            android:title="Agente X" />
+        <item
+            android:id="@+id/nav_id"
+            android:title="Id: XYZ" />
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_sair"
+                android:title="Sair da conta" />
+        </menu>
+    </item>
+
+</menu>
