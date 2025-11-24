@@ -14,13 +14,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Carregar a animação slide_up
         val slideUpAnimation = AnimationUtils.loadAnimation(this, R.anim.move_upp)
 
-        // 2. Aplicar a animação ao LinearLayout2
         binding.linearLayout2.startAnimation(slideUpAnimation)
 
-        // Configuração dos Listeners (mantidos)
         binding.btnEntrar.setOnClickListener {
             Intent(this, HomeActivity::class.java).also {
                 startActivity(it)
