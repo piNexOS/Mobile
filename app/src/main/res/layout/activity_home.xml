@@ -19,7 +19,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="60dp"
         android:fontFamily="@font/league_spartan_semibold"
-        android:text="Home"
+        android:text="Resumo"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
