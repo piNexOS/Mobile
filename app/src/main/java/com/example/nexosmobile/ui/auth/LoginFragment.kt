@@ -10,40 +10,45 @@ import android.view.animation.AnimationUtils
 import com.example.nexosmobile.ui.auth.EsqueciSenhaActivity
 import com.example.nexosmobile.HomeActivity
 import com.example.nexosmobile.R
-import com.example.nexosmobile.databinding.ActivityMainBinding
-import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-
-
-
+import com.example.nexosmobile.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var binding: ActivityMainBinding
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val slideUpAnimation = AnimationUtils.loadAnimation(this, R.anim.move_upp)
+
+        val slideUpAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.move_upp)
 
         binding.linearLayout2.startAnimation(slideUpAnimation)
 
         binding.btnEntrar.setOnClickListener {
-            Intent(this, HomeActivity::class.java).also {
+            Intent(requireContext(), HomeActivity::class.java).also {
                 startActivity(it)
             }
         }
 
         binding.tvEsqueceuSenha.setOnClickListener {
-            Intent(this, EsqueciSenhaActivity::class.java).also {
+            Intent(requireContext(), EsqueciSenhaActivity::class.java).also {
                 startActivity(it)
             }
         }
-    }}
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

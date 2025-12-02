@@ -7,46 +7,62 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <!-- CONTEÚDO PRINCIPAL DA TELA -->
+    <!-- CONTEÚDO PRINCIPAL -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroud_base">
 
-        <!-- TOOLBAR -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/backgroud_base"
-            android:title="Home"
-            android:titleTextColor="@android:color/white" />
+        <!-- TOOLBAR PERSONALIZADA -->
 
         <!-- SEU CONTEÚDO ORIGINAL -->
+
+
         <LinearLayout
             android:id="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="start"
-            android:padding="50dp">
+            android:layout_marginVertical="15dp"
+            >
 
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/main1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="60dp"
-                android:fontFamily="@font/league_spartan_semibold"
-                android:text="Home"
-                android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+
+                android:padding="10dp">
+
+                <!-- ÍCONE FIXO À ESQUERDA -->
+                <ImageButton
+                    android:id="@+id/btnMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:padding="16dp"
+                    android:src="@drawable/ic_menuuuu"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true" />
+
+                <!-- TÍTULO 100% CENTRALIZADO NA TELA -->
+                <TextView
+                    android:id="@+id/titleHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/league_spartan_semibold"
+                    android:text="Home"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/btnAcessar"
-                android:layout_width="match_parent"
+                android:layout_width="50%"
                 android:layout_height="60dp"
                 android:layout_marginTop="550dp"
                 android:backgroundTint="@color/azul_claro"

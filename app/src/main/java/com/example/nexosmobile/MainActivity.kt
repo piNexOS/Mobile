@@ -2,7 +2,7 @@ package com.example.nexosmobile
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.animation.AnimationUtils // Importe para usar AnimationUtils
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nexosmobile.databinding.ActivityMainBinding
 import com.example.nexosmobile.ui.auth.EsqueciSenhaActivity

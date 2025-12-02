@@ -19,13 +19,13 @@ class SplashActivity : AppCompatActivity() {
         val moveUp = AnimationUtils.loadAnimation(this, R.anim.move_up)
         logo.startAnimation(moveUp)
 
-        // ✅ Correção no postDelayed (lambda + delay no final)
+
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 
             @Suppress("DEPRECATION")
-            overridePendingTransition(0, 0) // desliga qualquer animação padrão
+            overridePendingTransition(0, 0)
 
             finish()
         }, 1000)

@@ -10,12 +10,8 @@
             android:title="Id: XYZ" />
     </group>
 
-    <item android:title="">
-        <menu>
-            <item
-                android:id="@+id/nav_sair"
-                android:title="Sair da conta" />
-        </menu>
-    </item>
+    <item
+        android:id="@+id/nav_sair"
+        android:title="Sair da conta" />
 
 </menu>
