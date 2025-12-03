@@ -61,20 +61,6 @@ class ResumoFragment : Fragment() {
             // adiciona o item
             container.addView(item)
 
-            // cria a linha separadora
-            val linha = View(requireContext()).apply {
-                layoutParams = LinearLayout.LayoutParams(
-                    330.dpToPx(requireContext()),   // largura
-                    1.dpToPx(requireContext())      // altura
-                ).apply {
-                    topMargin = 6.dpToPx(requireContext())
-                    bottomMargin = 12.dpToPx(requireContext())
-                }
-                setBackgroundColor(Color.parseColor("#D0D0D0"))
-            }
-
-            // adiciona a linha abaixo do item
-            container.addView(linha)
         }
     }
 

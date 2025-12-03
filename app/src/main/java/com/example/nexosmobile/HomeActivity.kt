@@ -24,7 +24,6 @@ class HomeActivity : BaseActivity() {
 
         configurarMenu()
 
-        // Tela inicial: Resumo
         abrirTelaResumo()
 
         binding.btnAcessar.setOnClickListener {
