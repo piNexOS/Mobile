@@ -4,10 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import com.example.nexosmobile.BaseActivity
 import com.example.nexosmobile.databinding.ActivityMainBinding
 import com.example.nexosmobile.ui.auth.EsqueciSenhaActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

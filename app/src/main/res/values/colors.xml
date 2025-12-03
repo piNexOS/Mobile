@@ -7,5 +7,8 @@
     <color name="azul_padrao">#1E4283</color>
     <color name="azul_claro">#C7D6E9</color>
     <color name="inputText">#979797</color>
-
+    <color name="corTexto">#FF000000</color>
+    <color name="azul_1">#1E4283</color>
+    <color name="azul_2">#C7D6E9</color>
+    <color name="cinza">#E1E2E6</color>
 </resources>

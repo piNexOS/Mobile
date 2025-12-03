@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headerRoteiros"
+    android:layout_width="match_parent"
+    android:layout_height="69dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingHorizontal="32dp"
+    android:background="@color/backgroud_base">
+
+    <LinearLayout
+        android:id="@+id/containerOpcoes"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnFuturos"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="55dp"
+            android:text="Futuros"
+            android:backgroundTint="@color/azul_1"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/btnPassados"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="55dp"
+            android:text="Passados"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/azul_2"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="330dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="12dp"
+        android:background="#D0D0D0" />
+
+</LinearLayout>

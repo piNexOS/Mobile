@@ -5,7 +5,8 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:fitsSystemWindows="true">
 
     <!-- CONTEÚDO PRINCIPAL -->
     <LinearLayout
@@ -13,14 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginVertical="30dp"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
         android:background="@color/backgroud_base">
 
         <!-- TOPO: MENU + TÍTULO -->
         <RelativeLayout
             android:id="@+id/main1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:padding="10dp">
 
             <ImageButton
@@ -45,8 +46,18 @@
                 android:textStyle="bold" />
 
         </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:gravity="center">
 
-        <!-- ÁREA DO FRAGMENTO COM TAMANHO FIXO E ROLAGEM -->
+            <FrameLayout
+                android:id="@+id/fragmentHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -60,7 +71,6 @@
 
         </ScrollView>
 
-        <!-- BOTÃO NA PARTE DE BAIXO -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

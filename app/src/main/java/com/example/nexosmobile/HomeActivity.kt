@@ -6,24 +6,84 @@ import android.text.SpannableString
 import android.text.style.UnderlineSpan
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.nexosmobile.BaseActivity
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
 import com.example.nexosmobile.databinding.ActivityHomeBinding
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+
+    private var mostrandoResumo = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // --- ABRIR MENU ---
+        configurarMenu()
+
+        // Tela inicial: Resumo
+        abrirTelaResumo()
+
+        binding.btnAcessar.setOnClickListener {
+            if (mostrandoResumo) {
+                abrirTelaVerTodos()
+            } else {
+                abrirTelaResumo()
+            }
+        }
+    }
+
+
+    private fun abrirTelaResumo() {
+        mostrandoResumo = true
+
+        val listaResumos = ResumoRepository.getResumosFake()
+        val resumoFragment = ResumoFragment.newInstance(listaResumos)
+
+        trocarFragmentConteudo(resumoFragment)
+        trocarHeader(HeaderResumoFragment())
+
+        binding.titleHome.text = "Resumo"
+        binding.btnAcessar.text = "Ver todos"
+    }
+
+    private fun abrirTelaVerTodos() {
+        mostrandoResumo = false
+
+        val listaResumos = ResumoRepository.getResumosFake()
+        val verTodosFragment = VerTodosFragment.newInstance(listaResumos)
+
+        trocarFragmentConteudo(verTodosFragment)
+        trocarHeader(HeaderRoteirosFragment())
+
+        binding.titleHome.text = "Roteiros Diários"
+        binding.btnAcessar.text = "Voltar ao resumo"
+    }
+
+    private fun trocarFragmentConteudo(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .commit()
+    }
+
+    private fun trocarHeader(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentHeader, fragment)
+            .commit()
+    }
+
+    // ---------------------------------------------------------
+    //     MENU LATERAL
+    // ---------------------------------------------------------
+
+    private fun configurarMenu() {
         binding.btnMenu.setOnClickListener {
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        // --- ESTILIZAR "SAIR" COM SUBLINHADO ---
         val sairItem = binding.navigationView.menu.findItem(R.id.nav_sair)
         sairItem?.let {
             val styled = SpannableString(it.title)
@@ -31,7 +91,6 @@ class HomeActivity : AppCompatActivity() {
             it.title = styled
         }
 
-        // --- LISTENER DO MENU ---
         binding.navigationView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_agente -> {
@@ -49,38 +108,6 @@ class HomeActivity : AppCompatActivity() {
             }
             binding.drawerLayout.closeDrawer(GravityCompat.START)
             true
-        }
-
-        // ==================================================================
-        //                     🔥 AQUI É A ALTERAÇÃO IMPORTANTE 🔥
-        // ==================================================================
-
-        // 1. Criar lista falsa de resumos (por enquanto sem BD)
-        val listaFake = arrayListOf(
-            Resumo("Resumo do dia", "Rotina inicial", "Coisas importantes", 3),
-            Resumo("Semana", "Visão geral", "Atividades pendentes", 5),
-            Resumo("Financeiro", "Gastos", "Resumo rápido", 1),
-            Resumo("Semana", "Visão geral", "Atividades pendentes", 5),
-            Resumo("Financeiro", "Gastos", "Resumo rápido", 1),
-            Resumo("Semana", "Visão geral", "Atividades pendentes", 5),
-            Resumo("Financeiro", "Gastos", "Resumo rápido", 1),
-            Resumo("Semana", "Visão geral", "Atividades pendentes", 5),
-            Resumo("Financeiro", "Gastos", "Resumo rápido", 1),
-        )
-
-        // 2. Carregar o fragment já com a lista
-        val fragment = ResumoFragment.newInstance(listaFake)
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
-            .commit()
-
-        // ==================================================================
-        // ==================================================================
-
-        // --- BOTÃO DE ACESSAR ---
-        binding.btnAcessar.setOnClickListener {
-            Toast.makeText(this, "Acessar Resumo clicado", Toast.LENGTH_SHORT).show()
         }
     }
 }

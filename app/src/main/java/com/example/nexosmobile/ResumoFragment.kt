@@ -1,12 +1,16 @@
 package com.example.nexosmobile
 
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+
 
 class ResumoFragment : Fragment() {
 
@@ -27,11 +31,9 @@ class ResumoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val container = view.findViewById<LinearLayout>(R.id.containerResumos)
         val inflater = LayoutInflater.from(requireContext())
-
-        // limpa só por garantia
+        val corTexto = ContextCompat.getColor(requireContext(), R.color.corTexto)
         container.removeAllViews()
 
-        // se não houver resumos, mostra texto
         if (resumos.isNullOrEmpty()) {
             val tvEmpty = TextView(requireContext()).apply {
                 text = "Nenhum resumo disponível"
@@ -41,23 +43,44 @@ class ResumoFragment : Fragment() {
             return
         }
 
-        // para cada resumo, inflamos item_resumo e setamos os dados
         for (res in resumos!!) {
             val item = inflater.inflate(R.layout.item_resumo, container, false)
 
             val tvTitulo = item.findViewById<TextView>(R.id.tvTitulo)
             val tvSub = item.findViewById<TextView>(R.id.tvSub)
-            val tvDesc = item.findViewById<TextView>(R.id.tvDesc)
             val tvPend = item.findViewById<TextView>(R.id.tvPend)
 
             tvTitulo.text = res.titulo
             tvSub.text = res.subtitulo
-            tvDesc.text = res.descricao
             tvPend.text = "Pendências: ${res.pendencias}"
 
+            tvTitulo.setTextColor(corTexto)
+            tvSub.setTextColor(corTexto)
+            tvPend.setTextColor(corTexto)
+
+            // adiciona o item
             container.addView(item)
+
+            // cria a linha separadora
+            val linha = View(requireContext()).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    330.dpToPx(requireContext()),   // largura
+                    1.dpToPx(requireContext())      // altura
+                ).apply {
+                    topMargin = 6.dpToPx(requireContext())
+                    bottomMargin = 12.dpToPx(requireContext())
+                }
+                setBackgroundColor(Color.parseColor("#D0D0D0"))
+            }
+
+            // adiciona a linha abaixo do item
+            container.addView(linha)
         }
     }
+
+    // Função auxiliar para converter dp em px
+    fun Int.dpToPx(context: Context): Int =
+        (this * context.resources.displayMetrics.density).toInt()
 
     companion object {
         private const val ARG_LISTA = "lista_resumos"

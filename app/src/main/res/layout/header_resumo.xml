@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="69dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="32dp">
+
+    <LinearLayout
+        android:id="@+id/containerOpcoes"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/league_spartan_semibold"
+        android:text="Guilherme Ferrari"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/txtEmpresaId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/league_spartan_regular"
+        android:text="NexEmpresa  •  ID: 12345"
+        android:textColor="#707070"
+        android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="330dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="12dp"
+        android:background="#D0D0D0" />
+
+</LinearLayout>
