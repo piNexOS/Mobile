@@ -18,25 +18,20 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Toolbar sem o toggle padrão
-
-
-        // ABRIR MENU PELO BOTÃO DE BARRINHAS
+        // --- ABRIR MENU ---
         binding.btnMenu.setOnClickListener {
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        // Substituir título “Sair da conta” com underline
-        val menu = binding.navigationView.menu
-        val sairItem = menu.findItem(R.id.nav_sair)
-
+        // --- ESTILIZAR "SAIR" COM SUBLINHADO ---
+        val sairItem = binding.navigationView.menu.findItem(R.id.nav_sair)
         sairItem?.let {
             val styled = SpannableString(it.title)
             styled.setSpan(UnderlineSpan(), 0, styled.length, 0)
             it.title = styled
         }
 
-        // CLIQUE NOS ITENS DO MENU
+        // --- LISTENER DO MENU ---
         binding.navigationView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_agente -> {
@@ -44,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_id -> {
-                    Toast.makeText(this, "Id clicado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "ID clicado", Toast.LENGTH_SHORT).show()
                 }
 
                 R.id.nav_sair -> {
@@ -52,17 +47,38 @@ class HomeActivity : AppCompatActivity() {
                     finish()
                 }
             }
-
             binding.drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
 
-        // Botão sair da tela principal
-        binding.btnSair.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
+        // ==================================================================
+        //                     🔥 AQUI É A ALTERAÇÃO IMPORTANTE 🔥
+        // ==================================================================
 
-        // Botão acessar
+        // 1. Criar lista falsa de resumos (por enquanto sem BD)
+        val listaFake = arrayListOf(
+            Resumo("Resumo do dia", "Rotina inicial", "Coisas importantes", 3),
+            Resumo("Semana", "Visão geral", "Atividades pendentes", 5),
+            Resumo("Financeiro", "Gastos", "Resumo rápido", 1),
+            Resumo("Semana", "Visão geral", "Atividades pendentes", 5),
+            Resumo("Financeiro", "Gastos", "Resumo rápido", 1),
+            Resumo("Semana", "Visão geral", "Atividades pendentes", 5),
+            Resumo("Financeiro", "Gastos", "Resumo rápido", 1),
+            Resumo("Semana", "Visão geral", "Atividades pendentes", 5),
+            Resumo("Financeiro", "Gastos", "Resumo rápido", 1),
+        )
+
+        // 2. Carregar o fragment já com a lista
+        val fragment = ResumoFragment.newInstance(listaFake)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .commit()
+
+        // ==================================================================
+        // ==================================================================
+
+        // --- BOTÃO DE ACESSAR ---
         binding.btnAcessar.setOnClickListener {
             Toast.makeText(this, "Acessar Resumo clicado", Toast.LENGTH_SHORT).show()
         }
