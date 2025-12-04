@@ -40,7 +40,7 @@
     </LinearLayout>
 
     <View
-        android:layout_width="330dp"
+        android:layout_width="350dp"
         android:layout_height="2dp"
         android:layout_marginTop="12dp"
         android:background="#D0D0D0" />

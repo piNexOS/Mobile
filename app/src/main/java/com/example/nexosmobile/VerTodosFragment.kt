@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nexosmobile.databinding.FragmentVerTodosBinding
 
+
 class VerTodosFragment : Fragment() {
 
     private var _binding: FragmentVerTodosBinding? = null
@@ -18,7 +19,7 @@ class VerTodosFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Recebe a lista enviada pela HomeActivity
+
         lista = arguments?.getParcelableArrayList("lista_resumos") ?: arrayListOf()
     }
 
@@ -33,7 +34,7 @@ class VerTodosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configurar RecyclerView
+
         binding.recyclerVerTodos.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerVerTodos.adapter = ResumoAdapter(lista)
     }
@@ -41,6 +42,11 @@ class VerTodosFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    fun atualizarLista(novaLista: ArrayList<Resumo>) {
+
+        val adapter = binding.recyclerVerTodos.adapter as? ResumoAdapter
+        adapter?.atualizarDados(novaLista)
     }
 
     companion object {
@@ -52,4 +58,5 @@ class VerTodosFragment : Fragment() {
             return fragment
         }
     }
+
 }

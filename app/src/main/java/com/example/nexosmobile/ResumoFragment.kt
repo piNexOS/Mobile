@@ -52,19 +52,19 @@ class ResumoFragment : Fragment() {
 
             tvTitulo.text = res.titulo
             tvSub.text = res.subtitulo
-            tvPend.text = "Pendências: ${res.pendencias}"
+            tvPend.text = "${res.pendencias}"
 
             tvTitulo.setTextColor(corTexto)
             tvSub.setTextColor(corTexto)
             tvPend.setTextColor(corTexto)
 
-            // adiciona o item
+
             container.addView(item)
 
         }
     }
 
-    // Função auxiliar para converter dp em px
+
     fun Int.dpToPx(context: Context): Int =
         (this * context.resources.displayMetrics.density).toInt()
 

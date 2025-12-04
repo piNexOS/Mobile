@@ -15,6 +15,7 @@ class HomeActivity : BaseActivity() {
 
     private lateinit var binding: ActivityHomeBinding
 
+    private var verTodosFragment: VerTodosFragment? = null
     private var mostrandoResumo = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +35,39 @@ class HomeActivity : BaseActivity() {
             }
         }
     }
+    private fun abrirTelaVerTodos() {
+        mostrandoResumo = false
 
+
+        val listaInicial = ResumoRepository.getFuturos()
+
+
+        verTodosFragment = VerTodosFragment.newInstance(listaInicial)
+
+
+        val headerRoteiros = HeaderRoteirosFragment()
+
+
+        headerRoteiros.quandoClicarEmFiltro = { filtro ->
+
+            val novaLista = if (filtro == "FUTUROS") {
+                ResumoRepository.getFuturos()
+            } else {
+                ResumoRepository.getPassados()
+            }
+
+
+            verTodosFragment?.atualizarLista(novaLista)
+        }
+
+
+        trocarFragmentConteudo(verTodosFragment!!)
+        trocarHeader(headerRoteiros)
+
+
+        binding.titleHome.text = "Roteiros Diários"
+        binding.btnAcessar.text = "Voltar ao resumo"
+    }
 
     private fun abrirTelaResumo() {
         mostrandoResumo = true
@@ -49,18 +82,7 @@ class HomeActivity : BaseActivity() {
         binding.btnAcessar.text = "Ver todos"
     }
 
-    private fun abrirTelaVerTodos() {
-        mostrandoResumo = false
 
-        val listaResumos = ResumoRepository.getResumosFake()
-        val verTodosFragment = VerTodosFragment.newInstance(listaResumos)
-
-        trocarFragmentConteudo(verTodosFragment)
-        trocarHeader(HeaderRoteirosFragment())
-
-        binding.titleHome.text = "Roteiros Diários"
-        binding.btnAcessar.text = "Voltar ao resumo"
-    }
 
     private fun trocarFragmentConteudo(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
@@ -73,10 +95,6 @@ class HomeActivity : BaseActivity() {
             .replace(R.id.fragmentHeader, fragment)
             .commit()
     }
-
-    // ---------------------------------------------------------
-    //     MENU LATERAL
-    // ---------------------------------------------------------
 
     private fun configurarMenu() {
         binding.btnMenu.setOnClickListener {
