@@ -1,7 +1,7 @@
 package com.example.nexosmobile
 
 import android.content.Context
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-
 
 class ResumoFragment : Fragment() {
 
@@ -32,6 +31,7 @@ class ResumoFragment : Fragment() {
         val container = view.findViewById<LinearLayout>(R.id.containerResumos)
         val inflater = LayoutInflater.from(requireContext())
         val corTexto = ContextCompat.getColor(requireContext(), R.color.corTexto)
+
         container.removeAllViews()
 
         if (resumos.isNullOrEmpty()) {
@@ -52,18 +52,22 @@ class ResumoFragment : Fragment() {
 
             tvTitulo.text = res.titulo
             tvSub.text = res.subtitulo
-            tvPend.text = "${res.pendencias}"
+            tvPend.text = "Pendências: ${res.pendencias}"
 
             tvTitulo.setTextColor(corTexto)
             tvSub.setTextColor(corTexto)
             tvPend.setTextColor(corTexto)
 
+            // ATUALIZAÇÃO: Adicionamos o clique no item da lista manual
+            item.setOnClickListener {
+                val intent = Intent(requireContext(), VisualizarRoteiroActivity::class.java)
+                intent.putExtra("roteiro_extra", res)
+                startActivity(intent)
+            }
 
             container.addView(item)
-
         }
     }
-
 
     fun Int.dpToPx(context: Context): Int =
         (this * context.resources.displayMetrics.density).toInt()

@@ -10,8 +10,9 @@
 
     <ImageView
         android:id="@+id/logoImage"
-        android:layout_width="413dp"
+        android:layout_width="match_parent"
         android:layout_height="341dp"
+        android:paddingLeft="-18.5dp"
         android:src="@drawable/logodois"
         android:scaleType="fitCenter"
         app:layout_constraintTop_toTopOf="parent"

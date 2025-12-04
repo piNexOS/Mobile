@@ -1,5 +1,6 @@
 package com.example.nexosmobile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nexosmobile.databinding.FragmentVerTodosBinding
-
 
 class VerTodosFragment : Fragment() {
 
@@ -18,8 +18,6 @@ class VerTodosFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         lista = arguments?.getParcelableArrayList("lista_resumos") ?: arrayListOf()
     }
 
@@ -34,17 +32,23 @@ class VerTodosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         binding.recyclerVerTodos.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerVerTodos.adapter = ResumoAdapter(lista)
+
+        // ATUALIZAÇÃO: Passamos a ação de clique para o Adapter
+        binding.recyclerVerTodos.adapter = ResumoAdapter(lista) { resumoClicado ->
+            val intent = Intent(requireContext(), VisualizarRoteiroActivity::class.java)
+            // Passamos o objeto clicado para a próxima tela
+            intent.putExtra("roteiro_extra", resumoClicado)
+            startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-    fun atualizarLista(novaLista: ArrayList<Resumo>) {
 
+    fun atualizarLista(novaLista: ArrayList<Resumo>) {
         val adapter = binding.recyclerVerTodos.adapter as? ResumoAdapter
         adapter?.atualizarDados(novaLista)
     }
@@ -58,5 +62,4 @@ class VerTodosFragment : Fragment() {
             return fragment
         }
     }
-
 }

@@ -2,30 +2,39 @@ package com.example.nexosmobile
 
 object ResumoRepository {
 
-    // Lista usada na tela inicial (Resumo)
+    // --- Seus métodos anteriores continuam aqui (getResumosFake, getFuturos, etc) ---
+    // Vou reescrever apenas para manter o contexto, mas o foco é o novo método lá embaixo
+
     fun getResumosFake(): ArrayList<Resumo> {
         return arrayListOf(
-            Resumo("Roteiro Hoje", "03/07 - Sexta", "Urgente", 5),
-            Resumo("Roteiro Amanhã", "04/07 - Sábado", "Planejado", 2)
+            Resumo("Roteiro A", "03/07 - Sexta", "Urgente", 2),
+            Resumo("Roteiro B", "04/07 - Sábado", "Planejado", 0)
         )
     }
 
-    // Lista para o botão "Futuros"
     fun getFuturos(): ArrayList<Resumo> {
         return arrayListOf(
             Resumo("Roteiro 03/07", "Sexta-feira", "Pendente", 5),
-            Resumo("Roteiro 04/07", "Sábado", "Pendente", 8),
-            Resumo("Roteiro 07/07", "Terça-feira", "Pendente", 7),
-            Resumo("Roteiro 08/07", "Quarta-feira", "Pendente", 9)
+            Resumo("Roteiro 04/07", "Sábado", "Pendente", 8)
         )
     }
 
-    // Lista para o botão "Passados"
     fun getPassados(): ArrayList<Resumo> {
         return arrayListOf(
-            Resumo("Roteiro 01/07", "Quarta-feira", "Concluído", 0),
-            Resumo("Roteiro 30/06", "Terça-feira", "Concluído", 0),
-            Resumo("Roteiro 29/06", "Segunda-feira", "Concluído", 0)
+            Resumo("Roteiro 01/07", "Quarta-feira", "Concluído", 0)
+        )
+    }
+
+
+    fun getOrdensPorRoteiro(roteiroTitulo: String): List<OrdemServico> {
+        // Retorna uma lista mista para testarmos os filtros
+        return listOf(
+            OrdemServico("1", "Serviço: Substituição Corretiva", "Localização: Soteco, Vila Velha", "FINALIZADA"),
+            OrdemServico("2", "Serviço: Instalação Nova", "Localização: Itapuã, Vila Velha", "FINALIZADA"),
+            OrdemServico("3", "Serviço: Deslocamento Padrão", "Localização: Centro, Vitória", "REJEITADA"),
+            OrdemServico("4", "Serviço: Manutenção Preventiva", "Localização: Praia da Costa", "PENDENTE"),
+            OrdemServico("5", "Serviço: Troca de Medidor", "Localização: Glória", "PENDENTE"),
+            OrdemServico("6", "Serviço: Corte de Energia", "Localização: Coqueiral", "PENDENTE")
         )
     }
 }
