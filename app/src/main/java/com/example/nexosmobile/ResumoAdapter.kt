@@ -7,7 +7,7 @@ import com.example.nexosmobile.databinding.ItemResumo2Binding
 
 class ResumoAdapter(
     private var lista: ArrayList<Resumo>,
-    private val aoClicarNoRoteiro: (Resumo) -> Unit // Callback de clique
+    private val aoClicarNoRoteiro: (Resumo) -> Unit
 ) : RecyclerView.Adapter<ResumoAdapter.ResumoViewHolder>() {
 
     inner class ResumoViewHolder(val binding: ItemResumo2Binding)
@@ -25,9 +25,7 @@ class ResumoAdapter(
         holder.binding.tvTitulo.text = item.titulo
         holder.binding.tvSub.text = item.subtitulo
         holder.binding.tvPend.text = "${item.pendencias}"
-        // Nota: Ajustei tvPend para só o número, pois no seu XML novo tem o ícone do relógio ao lado
 
-        // AÇÃO DE CLIQUE
         holder.itemView.setOnClickListener {
             aoClicarNoRoteiro(item)
         }

@@ -34,10 +34,10 @@ class VerTodosFragment : Fragment() {
 
         binding.recyclerVerTodos.layoutManager = LinearLayoutManager(requireContext())
 
-        // ATUALIZAÇÃO: Passamos a ação de clique para o Adapter
+
         binding.recyclerVerTodos.adapter = ResumoAdapter(lista) { resumoClicado ->
             val intent = Intent(requireContext(), VisualizarRoteiroActivity::class.java)
-            // Passamos o objeto clicado para a próxima tela
+
             intent.putExtra("roteiro_extra", resumoClicado)
             startActivity(intent)
         }

@@ -24,7 +24,7 @@ class HeaderResumoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 👉 Exemplo: Dados falsos (você futuramente pega do BD)
+
         val nome = "Guilherme Ferrari"
         val empresa = "NexEmpresa"
         val idUsuario = "12345"

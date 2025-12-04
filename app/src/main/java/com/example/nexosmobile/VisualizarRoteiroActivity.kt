@@ -17,13 +17,13 @@ class VisualizarRoteiroActivity : AppCompatActivity() {
         binding = ActivityVisualizarRoteiroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Recebe o objeto Roteiro vindo da tela anterior
+
         roteiroAtual = intent.getParcelableExtra("roteiro_extra") ?: return
 
         setupUI()
         setupClicks()
 
-        // Carrega inicialmente o fragmento de Concluídas (conforme imagem)
+
         abrirFragment(OrdensConcluidasFragment.newInstance(roteiroAtual.titulo))
     }
 
@@ -34,7 +34,7 @@ class VisualizarRoteiroActivity : AppCompatActivity() {
 
     private fun setupClicks() {
         binding.btnVoltar.setOnClickListener {
-            finish() // Fecha a activity e volta
+            finish()
         }
 
         binding.btnTabConcluidas.setOnClickListener {

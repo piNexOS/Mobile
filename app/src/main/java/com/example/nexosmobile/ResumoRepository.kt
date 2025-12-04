@@ -2,8 +2,7 @@ package com.example.nexosmobile
 
 object ResumoRepository {
 
-    // --- Seus métodos anteriores continuam aqui (getResumosFake, getFuturos, etc) ---
-    // Vou reescrever apenas para manter o contexto, mas o foco é o novo método lá embaixo
+
 
     fun getResumosFake(): ArrayList<Resumo> {
         return arrayListOf(
@@ -27,7 +26,7 @@ object ResumoRepository {
 
 
     fun getOrdensPorRoteiro(roteiroTitulo: String): List<OrdemServico> {
-        // Retorna uma lista mista para testarmos os filtros
+
         return listOf(
             OrdemServico("1", "Serviço: Substituição Corretiva", "Localização: Soteco, Vila Velha", "FINALIZADA"),
             OrdemServico("2", "Serviço: Instalação Nova", "Localização: Itapuã, Vila Velha", "FINALIZADA"),

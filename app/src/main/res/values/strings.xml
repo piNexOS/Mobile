@@ -2,6 +2,6 @@
     <string name="app_name">NexOs Mobile</string>
     <string name="open_drawer">Abrir menu</string>
     <string name="close_drawer">Fechar menu</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

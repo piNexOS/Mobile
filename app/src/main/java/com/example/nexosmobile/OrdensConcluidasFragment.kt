@@ -31,21 +31,21 @@ class OrdensConcluidasFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Pega todas as ordens deste roteiro
+
         val todasOrdens = ResumoRepository.getOrdensPorRoteiro(roteiroTitulo ?: "")
 
-        // Filtra
+
         val finalizadas = todasOrdens.filter { it.status == "FINALIZADA" }
         val rejeitadas = todasOrdens.filter { it.status == "REJEITADA" }
 
-        // Configura Recycler Finalizadas
+
         binding.recyclerFinalizadas.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerFinalizadas.adapter = OrdemServicoAdapter(finalizadas) { ordem ->
-            // Ação ao clicar em VISUALIZAR
+
             Toast.makeText(requireContext(), "Visualizar: ${ordem.titulo}", Toast.LENGTH_SHORT).show()
         }
 
-        // Configura Recycler Rejeitadas
+
         binding.recyclerRejeitadas.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerRejeitadas.adapter = OrdemServicoAdapter(rejeitadas) { ordem ->
             Toast.makeText(requireContext(), "Visualizar: ${ordem.titulo}", Toast.LENGTH_SHORT).show()

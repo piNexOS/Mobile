@@ -13,7 +13,7 @@ class HeaderRoteirosFragment : Fragment() {
     private var _binding: HeaderRoteirosBinding? = null
     private val binding get() = _binding!!
 
-    // Interface para avisar a Activity
+
     var quandoClicarEmFiltro: ((String) -> Unit)? = null
 
     override fun onCreateView(
@@ -27,7 +27,7 @@ class HeaderRoteirosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Estado inicial (Futuros selecionado)
+
         atualizarEstiloBotoes(futuroAtivo = true)
 
         binding.btnFuturos.setOnClickListener {
@@ -47,11 +47,11 @@ class HeaderRoteirosFragment : Fragment() {
         val cinzaInativo = ContextCompat.getColorStateList(context, R.color.azul_2) // Ou cor inativa
 
         if (futuroAtivo) {
-            // Futuros Ativo
+
             binding.btnFuturos.backgroundTintList = azulAtivo
             binding.btnPassados.backgroundTintList = cinzaInativo
         } else {
-            // Passados Ativo
+
             binding.btnFuturos.backgroundTintList = cinzaInativo
             binding.btnPassados.backgroundTintList = azulAtivo
         }

@@ -58,7 +58,6 @@ class ResumoFragment : Fragment() {
             tvSub.setTextColor(corTexto)
             tvPend.setTextColor(corTexto)
 
-            // ATUALIZAÇÃO: Adicionamos o clique no item da lista manual
             item.setOnClickListener {
                 val intent = Intent(requireContext(), VisualizarRoteiroActivity::class.java)
                 intent.putExtra("roteiro_extra", res)

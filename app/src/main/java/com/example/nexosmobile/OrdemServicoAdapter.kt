@@ -17,14 +17,14 @@ class OrdemServicoAdapter(
             binding.tvTituloServico.text = item.titulo
             binding.tvLocalizacao.text = item.localizacao
 
-            // Controle do ícone de status
+
             when (item.status) {
                 "FINALIZADA" -> binding.imgStatus.setImageResource(R.drawable.ic_check_circle) // Você precisará criar/ter esses ícones
                 "REJEITADA" -> binding.imgStatus.setImageResource(R.drawable.ic_error_circle)
                 else -> binding.imgStatus.setImageResource(R.drawable.relogioverde2)
             }
 
-            // Lógica de Expandir/Contrair
+
             if (item.isExpandido) {
                 binding.btnVisualizar.visibility = View.VISIBLE
                 binding.containerCard.elevation = 8f // Dá um destaque visual
@@ -33,13 +33,13 @@ class OrdemServicoAdapter(
                 binding.containerCard.elevation = 2f
             }
 
-            // Clique no CARD para expandir
+
             binding.root.setOnClickListener {
                 item.isExpandido = !item.isExpandido
                 notifyItemChanged(adapterPosition)
             }
 
-            // Clique no BOTÃO VISUALIZAR
+
             binding.btnVisualizar.setOnClickListener {
                 aoClicarEmVisualizar(item)
             }
