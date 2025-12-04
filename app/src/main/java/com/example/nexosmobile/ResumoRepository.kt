@@ -6,27 +6,26 @@ object ResumoRepository {
 
     fun getResumosFake(): ArrayList<Resumo> {
         return arrayListOf(
-            Resumo("Roteiro A", "03/07 - Sexta", "Urgente", 2),
-            Resumo("Roteiro B", "04/07 - Sábado", "Planejado", 0)
+            Resumo("Roteiro 05/12", "Sexta-feira", "Urgente", 2),
+            Resumo("Roteiro 06/12", "Sábado", "Planejado", 0)
         )
     }
 
     fun getFuturos(): ArrayList<Resumo> {
         return arrayListOf(
-            Resumo("Roteiro 03/07", "Sexta-feira", "Pendente", 5),
-            Resumo("Roteiro 04/07", "Sábado", "Pendente", 8)
+            Resumo("Roteiro 05/12", "Sexta-feira", "Pendente", 2),
+            Resumo("Roteiro 06/12", "Sábado", "Pendente", 0)
         )
     }
 
     fun getPassados(): ArrayList<Resumo> {
         return arrayListOf(
-            Resumo("Roteiro 01/07", "Quarta-feira", "Concluído", 0)
+            Resumo("Roteiro 04/07", "Quinta-feira", "Concluído", 4)
         )
     }
 
 
     fun getOrdensPorRoteiro(roteiroTitulo: String): List<OrdemServico> {
-
         return listOf(
             OrdemServico("1", "Serviço: Substituição Corretiva", "Localização: Soteco, Vila Velha", "FINALIZADA"),
             OrdemServico("2", "Serviço: Instalação Nova", "Localização: Itapuã, Vila Velha", "FINALIZADA"),

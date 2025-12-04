@@ -32,7 +32,7 @@
                     android:id="@+id/tvTituloServico"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Serviço: Substituição"
+                    android:text="@string/servi_o_substitui_o"
                     android:textStyle="bold"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"/>
@@ -42,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Localização: Vila Velha"
+                    android:text="@string/localiza_o_vila_velha"
                     android:textColor="@android:color/black"
                     android:textSize="12sp"/>
             </LinearLayout>

@@ -1,7 +1,39 @@
 <resources>
     <string name="app_name">NexOs Mobile</string>
+
+    <string name="identifica_o_de_usu_rio">Identificação de Usuário</string>
+    <string name="id">ID</string>
+    <string name="senha">Senha</string>
+    <string name="asteriscos">*********</string>
+    <string name="entrar">Entrar</string>
+    <string name="esqueceu_a_senha">Esqueceu a senha?</string>
+    <string name="esqueci_a_senha">Esqueci a Senha</string>
+
+    <string name="trocar_senha">Trocar Senha</string>
+    <string name="nova_senha">Nova Senha</string>
+    <string name="confirmar_senha">Confirmar Senha</string>
+
+    <string name="menu">Menu</string>
     <string name="open_drawer">Abrir menu</string>
     <string name="close_drawer">Fechar menu</string>
 
+    <string name="resumo">Resumo</string>
+    <string name="acessar_resumo">Acessar Resumo</string>
+    <string name="futuros">Futuros</string>
+    <string name="passados">Passados</string>
+    <string name="pend_ncias">Pendências:</string>
+
+    <string name="t_tulo">Título</string>
+    <string name="subt_tulo">Subtítulo</string>
+    <string name="dezembro">Dezembro</string>
+
+    <string name="nexempresa_id_12345">NexEmpresa • ID: 12345</string>
+    <string name="guilherme_ferrari">Guilherme Ferrari</string>
+    <string name="localiza_o_vila_velha">Localização: Vila Velha</string>
+    <string name="servi_o_substitui_o">Serviço: Substituição</string>
+
+    <string name="_0">0</string>
+    <string name="_1">1</string>
+    <string name="oi">oi</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

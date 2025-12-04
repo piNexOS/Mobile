@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/league_spartan_semibold"
-        android:text="Guilherme Ferrari"
+        android:text="@string/guilherme_ferrari"
         android:textColor="@android:color/black"
         android:textSize="22sp"
         android:textStyle="bold" />
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:fontFamily="@font/league_spartan_regular"
-        android:text="NexEmpresa  •  ID: 12345"
+        android:text="@string/nexempresa_id_12345"
         android:textColor="#707070"
         android:textSize="14sp" />
 
