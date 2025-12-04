@@ -23,7 +23,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="60dp"
         android:fontFamily="@font/league_spartan_semibold"
-        android:text="Esqueci a Senha"
+        android:text="@string/esqueci_a_senha"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="ID"
+        android:text="@string/id"
         android:textColor="@android:color/black"
         android:textSize="24sp" />
 
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_edittext"
         android:fontFamily="@font/league_spartan_regular"
-        android:hint="Identificação de Usuário"
+        android:hint="@string/identifica_o_de_usu_rio"
         android:padding="12dp"
         android:textColor="@android:color/black"
         app:boxBackgroundMode="outline"
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Nova Senha"
+        android:text="@string/nova_senha"
         android:textColor="@android:color/black"
         android:textSize="24sp" />
 
@@ -64,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_edittext"
-        android:hint="*********"
+        android:hint="@string/asteriscos"
         android:inputType="textPassword"
         android:padding="12dp"
         android:textColor="@android:color/black" />
@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Confirmar Senha"
+        android:text="@string/confirmar_senha"
         android:textColor="@android:color/black"
         android:textSize="24sp" />
 
@@ -81,7 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_edittext"
-        android:hint="*********"
+        android:hint="@string/asteriscos"
         android:inputType="textPassword"
         android:padding="12dp"
         android:textColor="@android:color/black" />
@@ -94,7 +94,7 @@
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/azul_padrao"
         android:fontFamily="@font/league_spartan_regular"
-        android:text="Trocar Senha"
+        android:text="@string/trocar_senha"
         android:textColor="@color/white"
         android:textSize="20dp"
 

@@ -33,7 +33,7 @@
                     android:id="@+id/tvNumero"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
+                    android:text="@string/_1"
                     android:textSize="36sp"
                     android:textStyle="bold"
                     android:textColor="@color/corTexto"/>
@@ -42,7 +42,7 @@
                     android:id="@+id/tvMes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dezembro"
+                    android:text="@string/dezembro"
                     android:layout_marginTop="-5dp"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -63,7 +63,7 @@
                 android:id="@+id/tvTitulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Título"
+                android:text="@string/t_tulo"
                 android:textSize="16sp"
                 android:layout_marginBottom="10dp"
                 android:textStyle="bold"
@@ -73,7 +73,7 @@
                 android:id="@+id/tvSub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Subtítulo"
+                android:text="@string/subt_tulo"
                 android:layout_marginBottom="-8dp"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp"
@@ -86,7 +86,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pendências: "
+                    android:text="@string/pend_ncias"
                     android:textSize="13sp"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/corTexto"/>
@@ -94,7 +94,7 @@
                     android:id="@+id/tvPend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="@string/_0"
                     android:textSize="13sp"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/corTexto"/>

@@ -3,11 +3,11 @@ package com.example.nexosmobile
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nexosmobile.databinding.ItemResumo2Binding
+import com.example.nexosmobile.databinding.ItemResumo2Binding // Certifique-se que o nome do binding está correto com seu XML
 
 class ResumoAdapter(
     private var lista: ArrayList<Resumo>,
-    private val aoClicarNoRoteiro: (Resumo) -> Unit // Callback de clique
+    private val aoClicarNoRoteiro: (Resumo) -> Unit
 ) : RecyclerView.Adapter<ResumoAdapter.ResumoViewHolder>() {
 
     inner class ResumoViewHolder(val binding: ItemResumo2Binding)
@@ -15,6 +15,7 @@ class ResumoAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResumoViewHolder {
         val inflater = LayoutInflater.from(parent.context)
+
         val binding = ItemResumo2Binding.inflate(inflater, parent, false)
         return ResumoViewHolder(binding)
     }
@@ -25,9 +26,14 @@ class ResumoAdapter(
         holder.binding.tvTitulo.text = item.titulo
         holder.binding.tvSub.text = item.subtitulo
         holder.binding.tvPend.text = "${item.pendencias}"
-        // Nota: Ajustei tvPend para só o número, pois no seu XML novo tem o ícone do relógio ao lado
 
-        // AÇÃO DE CLIQUE
+
+        val numeroSequencial = position + 5
+
+
+        holder.binding.tvNumero.text = numeroSequencial.toString()
+
+
         holder.itemView.setOnClickListener {
             aoClicarNoRoteiro(item)
         }

@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/league_spartan_semibold"
-                android:text="Resumo"
+                android:text="@string/resumo"
                 android:textColor="@android:color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -82,7 +82,7 @@
                 android:layout_height="60dp"
                 android:backgroundTint="@color/azul_claro"
                 android:fontFamily="@font/league_spartan_regular"
-                android:text="Acessar Resumo"
+                android:text="@string/acessar_resumo"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
         </LinearLayout>
